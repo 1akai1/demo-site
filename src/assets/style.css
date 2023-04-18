@@ -1,0 +1,27 @@
+@font-face {
+	font-family: 'JetBrainsMono';
+	font-weight: bold;
+	src: url('../assets/fonts-family/JetBrainsMono-Bold.3914674.woff');
+}
+@font-face {
+	font-family: 'JetBrainsMono';
+	font-weight: medium;
+	src: url('../assets/fonts-family/JetBrainsMono-Medium.30f8087.woff');
+}
+@font-face {
+	font-family: 'JetBrainsMono';
+	font-weight: 400;
+	src: url('../assets/fonts-family/JetBrainsMono-Regular.f52bee6.woff');
+}
+@font-face {
+	font-family: 'Oswald';
+	font-weight: 400;
+	src: url('../assets/fonts-family/Oswald-Regular.7f8da1c.woff');
+}
+
+.JetBrainsMono {
+	font-family: 'JetBrainsMono';
+}
+.Oswald {
+	font-family: 'JetBrainsMono';
+}
