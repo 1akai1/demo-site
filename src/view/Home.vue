@@ -2,6 +2,7 @@
 import { computed, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import store from '../store'
+import NewsFeed from '../components/UI/NewsFeed.vue'
 
 const router = useRouter()
 const data = computed(() => store.state.categories)
@@ -26,8 +27,10 @@ onMounted(() => {
 </script>
 
 <template>
-	<div>home</div>
-	<!-- <pre>{{ data }}</pre> -->
+	<div>
+		home
+		<news-feed></news-feed>
+	</div>
 </template>
 
 <style scoped></style>

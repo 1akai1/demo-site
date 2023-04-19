@@ -16,7 +16,7 @@ function toggle() {
 
 function onResize() {
 	state.value = window.innerWidth
-	if (state.value > 786) {
+	if (state.value > 950) {
 		emit('update:active', true)
 	} else emit('update:active', false)
 }

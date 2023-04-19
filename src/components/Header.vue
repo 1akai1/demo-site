@@ -5,8 +5,8 @@ import TagBar from '../components/UI/Tagbar.vue'
 
 <template>
 	<header>
-		<NavBar></NavBar>
-		<TagBar></TagBar>
+		<nav-bar></nav-bar>
+		<tag-bar></tag-bar>
 	</header>
 </template>
 
