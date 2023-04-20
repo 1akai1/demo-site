@@ -37,7 +37,9 @@ onUnmounted(() => {
 
 <template>
 	<div class="text-white bg-black">
-		<tag-render :tags="tags"></tag-render>
+		<tag-render
+			class="max-w-[1600px] mx-auto"
+			:tags="tags"></tag-render>
 	</div>
 </template>
 

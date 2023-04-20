@@ -46,7 +46,7 @@ onUnmounted(() => {
 
 <template>
 	<section
-		class="grid media600:grid-cols-2 gap-1 px-5 py-5 mx-auto media900:grid-cols-3 media1600:grid-cols-4 max-w-[1600px]">
+		class="grid media600:grid-cols-2 gap-1 p-5 mx-auto media900:grid-cols-3 media1600:grid-cols-4 max-w-[1600px]">
 		<news-render :data="data"></news-render>
 	</section>
 </template>

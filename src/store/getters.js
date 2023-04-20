@@ -1,20 +1,34 @@
 export function getNav(state) {
-	let nav = []
+	let data = []
 	if (state.categories.length) {
 		for (const itemNav of state.categories) {
-			nav.push({ name: itemNav.name, id: itemNav.id })
+			data.push({ name: itemNav.name, id: itemNav.id })
 		}
 	} else {
-		nav.push('Ошибка')
+		data.push('Ошибка')
 	}
-	return nav
+	return data
 }
 export const getNewsFeed = (state) => (size) => {
-	let newsFeed = []
+	let data = []
 	if (state.articles.length) {
-		newsFeed = [...state.articles].reverse().slice(0, size)
+		data = [...state.articles].reverse().slice(0, size)
 	} else {
-		newsFeed.push('Ошибка')
+		data.push('Ошибка')
 	}
-	return newsFeed
+	return data
+}
+export const getPostList = (state) => (size) => {
+	let data = []
+	if (state.categories.length) {
+		// debugger
+		data = state.categories.map((element) => {
+			element.articles = element.articles.slice(0, size)
+			return element
+		})
+		// console.log(data)
+	} else {
+		data.push('Ошибка')
+	}
+	return data
 }
