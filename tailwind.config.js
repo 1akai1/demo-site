@@ -5,6 +5,9 @@ export default {
 		extend: {
 			screens: {
 				md: '950px',
+				media600: '600px',
+				media900: '900px',
+				media1600: '1600px',
 			},
 		},
 	},

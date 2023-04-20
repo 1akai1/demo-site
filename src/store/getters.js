@@ -9,10 +9,10 @@ export function getNav(state) {
 	}
 	return nav
 }
-export function getNewsFeed(state) {
+export const getNewsFeed = (state) => (size) => {
 	let newsFeed = []
 	if (state.articles.length) {
-		newsFeed = [...state.articles].reverse().slice(0, 10)
+		newsFeed = [...state.articles].reverse().slice(0, size)
 	} else {
 		newsFeed.push('Ошибка')
 	}

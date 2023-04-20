@@ -1,32 +1,16 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
 const props = defineProps({
 	active: {
 		type: Boolean,
 		default: false,
 	},
 })
-const state = ref()
+
 const emit = defineEmits(['update:active'])
 
 function toggle() {
 	emit('update:active', !props.active)
-	// debugger
 }
-
-function onResize() {
-	state.value = window.innerWidth
-	if (state.value > 950) {
-		emit('update:active', true)
-	} else emit('update:active', false)
-}
-
-onMounted(() => {
-	window.addEventListener('resize', onResize)
-})
-onUnmounted(() => {
-	window.removeEventListener('resize', onResize)
-})
 </script>
 
 <template>
@@ -35,7 +19,7 @@ onUnmounted(() => {
 			<button
 				@click="toggle"
 				:class="{ active: active }"
-				class="fixed z-10 menu-icon">
+				class="fixed z-20 menu-icon">
 				<span></span>
 				<span></span>
 				<span></span>
@@ -43,17 +27,13 @@ onUnmounted(() => {
 		</div>
 		<div
 			:class="{ active: active }"
-			class="fixed left-0 top-0 w-screen h-screen bg-white translate-x-[100%] md:translate-x-0 transition duration-200 ease-in-out menu md:static md:w-auto md:h-auto md:top-auto">
+			class="fixed left-0 top-0 w-screen h-screen z-10 bg-white translate-x-[100%] md:translate-x-0 transition duration-200 ease-in-out menu md:static md:w-auto md:h-auto md:top-auto">
 			<slot></slot>
 		</div>
 	</div>
 </template>
 
 <style scoped>
-/* .menu {
-	transition: 0.3s ease-in-out;
-	transform: translateX(100%);
-} */
 .menu.active {
 	transform: translateX(0);
 }

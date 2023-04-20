@@ -3,6 +3,7 @@ import { computed, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import store from '../store'
 import NewsFeed from '../components/UI/NewsFeed.vue'
+import PostList from '../components/UI/PostList.vue'
 
 const router = useRouter()
 const data = computed(() => store.state.categories)
@@ -27,10 +28,10 @@ onMounted(() => {
 </script>
 
 <template>
-	<div>
-		home
+	<section class="">
 		<news-feed></news-feed>
-	</div>
+		<post-list></post-list>
+	</section>
 </template>
 
 <style scoped></style>
