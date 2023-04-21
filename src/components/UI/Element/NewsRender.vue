@@ -35,7 +35,7 @@ function timeForm(date) {
 		:key="item.id">
 		<div
 			v-if="1"
-			class="bg-zoom p-4 flex flex-col justify-between min-h-[200px] max-h-[250px] text-white OpenSans cursor-pointer"
+			class="rounded bg-zoom p-4 flex flex-col justify-between min-h-[200px] max-h-[250px] text-white OpenSans cursor-pointer"
 			:style="{
 				'--bg-image': `url(${item?.image?.formats?.small?.url})`,
 				'--gradient-from': gradient(item?.category?.id),
@@ -64,8 +64,7 @@ function timeForm(date) {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-image: linear-gradient(rgba(0, 0, 0, 0), var(--gradient-from)),
-		var(--bg-image);
+	background-image: linear-gradient(rgba(0, 0, 0, 0), var(--gradient-from)), var(--bg-image);
 	background-size: cover;
 	background-position: center;
 	transition: transform 0.3s ease-in-out;
@@ -74,8 +73,7 @@ function timeForm(date) {
 
 .bg-zoom:hover::after {
 	transform: scale(1.2);
-	background-image: linear-gradient(rgba(255, 0, 0, 0), rgba(255, 0, 0, 1)),
-		var(--bg-image);
+	background-image: linear-gradient(rgba(255, 0, 0, 0), rgba(255, 0, 0, 1)), var(--bg-image);
 }
 
 .bg-zoom > * {

@@ -4,7 +4,7 @@ import TagBar from '../components/UI/Tagbar.vue'
 </script>
 
 <template>
-	<header>
+	<header class="bg-white">
 		<nav-bar></nav-bar>
 		<tag-bar></tag-bar>
 	</header>

@@ -9,7 +9,7 @@ const data = computed(() => store.getters.getPostList(props.postLimitRender))
 </script>
 
 <template>
-	<section class="flex flex-col gap-5 max-w-[1600px] p-5 mx-auto">
+	<section class="flex flex-col gap-5 max-w-[1600px] px-5 m-5 mx-auto">
 		<post-list-render :data="data"></post-list-render>
 	</section>
 </template>

@@ -6,7 +6,7 @@ import NewsFeed from '../components/UI/NewsFeed.vue'
 import PostList from '../components/UI/PostList.vue'
 
 const router = useRouter()
-const postLimitRender = 2
+const postLimitRender = 6
 
 onMounted(() => {
 	try {
@@ -28,8 +28,8 @@ onMounted(() => {
 </script>
 
 <template>
-	<section class="">
-		<news-feed></news-feed>
+	<section>
+		<news-feed class="bg-milck-50"></news-feed>
 		<post-list :postLimitRender="postLimitRender"></post-list>
 	</section>
 </template>

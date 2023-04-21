@@ -71,4 +71,34 @@ function toggle() {
 	transform: translateY(calc(100%)) rotate(-45deg);
 	transform-origin: left;
 }
+.menu-icon:hover span:nth-child(1) {
+	/* transform: rotate(45deg); */
+	transform: translateY(calc(-100%)) rotate(10deg);
+	transform-origin: left;
+}
+
+.menu-icon:hover span:nth-child(2) {
+	opacity: 0.8;
+	transform: translatex(-10%);
+}
+
+.menu-icon:hover span:nth-child(3) {
+	transform: translateY(calc(100%)) rotate(-10deg);
+	transform-origin: left;
+}
+.menu-icon.active:hover span:nth-child(1) {
+	/* transform: rotate(45deg); */
+	transform: translateY(calc(-100%)) rotate(45deg);
+	transform-origin: left;
+}
+
+.menu-icon.active:hover span:nth-child(2) {
+	opacity: 0;
+	transform: translatex(-100%);
+}
+
+.menu-icon.active:hover span:nth-child(3) {
+	transform: translateY(calc(100%)) rotate(-45deg);
+	transform-origin: left;
+}
 </style>
