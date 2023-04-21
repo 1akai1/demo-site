@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Default from '../layout/Default.vue'
 
 import Home from '../view/Home.vue'
-import Post from '../view/Post.vue'
+import Posts from '../view/Posts.vue'
 import Authorization from '../view/Authorization.vue'
 import NotFound from '../view/NotFound.vue'
 
@@ -17,9 +17,9 @@ const routes = [
 				component: Home,
 			},
 			{
-				path: '/:post/:postId?',
-				name: 'post',
-				component: Post,
+				path: '/:posts/:postId?',
+				name: 'posts',
+				component: Posts,
 			},
 			{
 				path: '/authorization/:params',

@@ -4,10 +4,10 @@ import TagBar from '../components/UI/Tagbar.vue'
 </script>
 
 <template>
-	<header class="bg-white">
+	<header class="sticky top-0 z-10">
 		<nav-bar></nav-bar>
-		<tag-bar></tag-bar>
 	</header>
+	<tag-bar></tag-bar>
 </template>
 
 <style scoped></style>

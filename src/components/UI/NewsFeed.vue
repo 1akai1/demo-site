@@ -1,23 +1,16 @@
 <script setup>
-import {
-	computed,
-	onMounted,
-	onUnmounted,
-	ref,
-	nextTick,
-	onBeforeMount,
-} from 'vue'
+import { computed, onMounted, onUnmounted, ref, nextTick, onBeforeMount } from 'vue'
 import store from '../../store'
 import NewsRender from './Element/NewsRender.vue'
 
-const test = ref()
-const data = computed(() => store.getters.getNewsFeed(test.value))
+const posts = ref()
+const data = computed(() => store.getters.getNewsFeed(posts.value))
 
 const changeList6or8 = (e) => {
-	test.value = e.matches ? 6 : 8
+	posts.value = e.matches ? 6 : 8
 }
 const changeList4or6 = (e) => {
-	test.value = e.matches ? 4 : 6
+	posts.value = e.matches ? 4 : 6
 }
 let media1600px
 let media900px
@@ -30,12 +23,12 @@ onMounted(async () => {
 	media900px.addEventListener('change', changeList4or6)
 
 	await nextTick()
-	if (media1600px.matches) {
-		test.value = 6
-	} else if (media900px.matches) {
-		test.value = 4
+	if (media900px.matches) {
+		posts.value = 4
+	} else if (media1600px.matches) {
+		posts.value = 6
 	} else {
-		test.value = 8
+		posts.value = 8
 	}
 })
 onUnmounted(() => {

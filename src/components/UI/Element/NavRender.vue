@@ -16,7 +16,7 @@ const { nav } = defineProps({
 			@click="
 				() => {
 					emit('goto', false)
-					router.push('/dd')
+					router.push(`/${item.url}`)
 				}
 			"
 			v-for="item in nav"
