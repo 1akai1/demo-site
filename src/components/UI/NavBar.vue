@@ -20,16 +20,17 @@ store.watch(
 		}
 	}
 )
+let storedNav
 onMounted(async () => {
-	await store.dispatch('getData', {
-		url: 'categories',
-		mutationName: 'setData',
-		stateName: 'nav',
-	})
-	const storedNav = localStorage.getItem('nav')
+	storedNav = localStorage.getItem('nav')
 	if (storedNav) {
 		store.commit('setNav', JSON.parse(storedNav || []))
 	} else {
+		await store.dispatch('getData', {
+			url: 'categories',
+			mutationName: 'setData',
+			stateName: 'nav',
+		})
 	}
 })
 onUnmounted(() => {

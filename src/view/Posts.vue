@@ -28,9 +28,9 @@ onMounted(() => {
 </script>
 
 <template>
-	<post-list-render :data="data"></post-list-render>
-	<!-- <pre>{{ data }}</pre> -->
-	<pre>{{ posts }}</pre>
+	<post-list-render
+		:data="data"
+		:enabled="false"></post-list-render>
 </template>
 
 <style scoped></style>

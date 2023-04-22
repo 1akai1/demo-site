@@ -5,7 +5,7 @@ import Home from '../view/Home.vue'
 import Posts from '../view/Posts.vue'
 import Authorization from '../view/Authorization.vue'
 import NotFound from '../view/NotFound.vue'
-
+import Post from '../view/Post.vue'
 const routes = [
 	{
 		path: '/',
@@ -17,9 +17,14 @@ const routes = [
 				component: Home,
 			},
 			{
-				path: '/:posts/:postId?',
+				path: '/:posts/',
 				name: 'posts',
 				component: Posts,
+			},
+			{
+				path: '/:posts/:postId',
+				name: 'postId',
+				component: Post,
 			},
 			{
 				path: '/authorization/:params',

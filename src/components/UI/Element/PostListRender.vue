@@ -14,7 +14,16 @@ const props = defineProps({
 	data: {
 		type: Array,
 	},
+	enabled: {
+		type: Boolean,
+	},
 })
+let wrap = ref()
+if (!props.enabled) {
+	wrap.value = 'wrap'
+} else {
+	wrap.value = 'nowrap'
+}
 </script>
 
 <template>
@@ -23,25 +32,28 @@ const props = defineProps({
 		:key="categorie.id"
 		class="flex flex-col gap-2 posts">
 		<h1
-			@click="router.push(categorie?.url)"
+			@click="router.push(`/${categorie?.url}`)"
 			class="text-2xl font-bold cursor-pointer JetBrainsMono">
 			{{ categorie.name }} ->
 		</h1>
-		<article class="">
+		<article>
 			<swiper
 				v-if="categorie.articles?.length"
 				:modules="[Scrollbar, Mousewheel]"
 				:slides-per-view="'auto'"
 				:mousewheel="{ forceToAxis: true, releaseOnEdges: true }"
 				:space-between="12"
+				:enabled="enabled"
 				:scrollbar="{
 					el: '.swiper-scrollbar',
 					draggable: true,
-				}">
+				}"
+				:style="{ '--swiper-wrapper-wrap': wrap }">
 				<swiper-slide
 					v-for="article in categorie.articles"
 					:key="article.id"
-					class="overflow-hidden bg-white rounded shadow-md mb-7 group">
+					class="overflow-hidden bg-white rounded shadow-md cursor-pointer mb-7 group"
+					@click="router.push(`/${categorie?.url}/${article?.url}`)">
 					<div class="w-[250px] h-[320px]">
 						<div
 							class="h-[145px] bg-cover bg-center rounded-t transition-[height] ease-in-out duration-300 group-hover:h-[110px]"
@@ -68,6 +80,12 @@ const props = defineProps({
 </template>
 
 <style>
+.swiper-wrapper {
+	flex-wrap: var(--swiper-wrapper-wrap);
+}
+/* .swiper-wrapper .swiper-slide {
+	margin: var(--swiper-wrapper-m) !important;
+} */
 .posts p,
 .posts strong {
 	display: inline;

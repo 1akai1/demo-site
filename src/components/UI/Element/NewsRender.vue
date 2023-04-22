@@ -1,4 +1,6 @@
 <script setup>
+import { useRouter } from 'vue-router'
+const router = useRouter()
 const props = defineProps({
 	data: {
 		type: Array,
@@ -34,7 +36,7 @@ function timeForm(date) {
 		v-for="item in data"
 		:key="item.id">
 		<div
-			v-if="1"
+			@click="router.push(`/${item?.category?.url}/${item?.url}`)"
 			class="rounded bg-zoom p-4 flex flex-col justify-between min-h-[200px] max-h-[250px] text-white OpenSans cursor-pointer"
 			:style="{
 				'--bg-image': `url(${item?.image?.formats?.small?.url})`,
