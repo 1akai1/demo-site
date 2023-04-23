@@ -18,6 +18,11 @@
 	font-weight: 400;
 	src: url('../assets/fonts-family/Oswald-Regular.7f8da1c.woff');
 }
+@font-face {
+	font-family: 'Oswald';
+	font-weight: bold;
+	src: url('../assets/fonts-family/Oswald-Bold.6f8a795.woff');
+}
 
 .JetBrainsMono {
 	font-family: 'JetBrainsMono';

@@ -1,7 +1,7 @@
 export function getNav(state) {
 	let data = []
-	if (state.categories.length) {
-		for (const itemNav of state.categories) {
+	if (state.nav.length) {
+		for (const itemNav of state.nav) {
 			data.push({ name: itemNav.name, url: itemNav.url, id: itemNav.id })
 		}
 	} else {

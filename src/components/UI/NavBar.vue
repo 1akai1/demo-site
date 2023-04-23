@@ -1,36 +1,34 @@
 <script setup>
-import { computed, ref, onMounted, onUnmounted } from 'vue'
+import { computed, ref, onMounted, onUnmounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import store from '../../store'
 import NavRender from './Element/NavRender.vue'
 import Logo from './Element/Logo.vue'
 import Login from './Authorization/Login.vue'
 import Hamburger from './Element/Hamburger.vue'
+import { getDataWithServer } from '../../composition/getDataWithServer'
 
 const router = useRouter()
-const nav = computed(() => store.state.nav)
+const nav = computed(() => store.getters.getNav)
 const active = ref(false)
+let storedNav
 
 store.watch(
 	(state) => state.nav,
 	() => {
-		if (!nav.value.length) {
-			store.commit('setNav', store.getters.getNav)
-			localStorage.setItem('nav', JSON.stringify(nav.value))
+		if (storedNav == (undefined || null)) {
+			let temp = computed(() => store.getters.getNav)
+			localStorage.setItem('nav', JSON.stringify(temp.value))
 		}
 	}
 )
-let storedNav
 onMounted(async () => {
-	storedNav = localStorage.getItem('nav')
-	if (storedNav) {
-		store.commit('setNav', JSON.parse(storedNav || []))
+	storedNav = JSON.parse(localStorage.getItem('nav'))
+	if (storedNav == (undefined || null)) {
+		await getDataWithServer('categories', 'setData', 'nav', router)
 	} else {
-		await store.dispatch('getData', {
-			url: 'categories',
-			mutationName: 'setData',
-			stateName: 'nav',
-		})
+		store.commit('setNav', storedNav)
+		// console.log(storedNav)
 	}
 })
 onUnmounted(() => {

@@ -7,7 +7,6 @@ import Main from '../components/Main.vue'
 	<div>
 		<Header></Header>
 		<Main></Main>
-		<!-- <router-view></router-view> -->
 	</div>
 </template>
 

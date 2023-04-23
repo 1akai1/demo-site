@@ -1,5 +1,6 @@
 <script setup>
 import { useRouter } from 'vue-router'
+import { timeForm } from '../../../composition/timeForm'
 const router = useRouter()
 const props = defineProps({
 	data: {
@@ -20,14 +21,6 @@ function gradient(categoryId) {
 			return 'rgb(55, 6, 51)'
 	}
 	return 'blue'
-}
-function timeForm(date) {
-	const options = {
-		year: 'numeric',
-		month: 'long',
-		day: 'numeric',
-	}
-	return new Date(date).toLocaleString('ru-Ru', options)
 }
 </script>
 
