@@ -36,7 +36,7 @@ if (!props.enabled) {
 		class="flex flex-col gap-2 posts">
 		<h1
 			@click="router.push(`/${categorie?.url}`)"
-			class="text-2xl font-bold cursor-pointer JetBrainsMono">
+			class="text-[1.7rem] font-bold cursor-pointer JetBrainsMono">
 			{{ categorie.name }} ->
 		</h1>
 		<article>

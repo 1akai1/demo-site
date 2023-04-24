@@ -38,7 +38,7 @@ onUnmounted(() => {
 <template>
 	<nav class="bg-white">
 		<div
-			class="flex items-center justify-between gap-10 mx-auto px-5 py-1 max-w-[1600px] select-none">
+			class="flex px-5 items-center justify-between gap-10 mx-auto py-[5px] max-w-[1600px] select-none">
 			<hamburger
 				v-model:active="active"
 				class="order-1 md:order-2 md:mr-auto">
@@ -48,7 +48,7 @@ onUnmounted(() => {
 			</hamburger>
 			<logo
 				@click="router.push('/')"
-				class="order-2 py-1 cursor-pointer min-w-[120px] md:order-1" />
+				class="order-2 cursor-pointer min-w-[120px] md:order-1" />
 			<button
 				@click="router.push('/authorization/login')"
 				class="order-3 px-3 py-2 text-base rounded cursor-pointer md:order-3 JetBrainsMono hover:bg-[#eeeeeeaa] hover:text-[#ed3900]">

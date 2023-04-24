@@ -7,7 +7,7 @@ const props = defineProps({
 </script>
 
 <template>
-	<ul class="flex gap-5 px-5 py-[2px] JetBrainsMono">
+	<ul class="flex gap-5 leading-[normal] px-5 py-[5px] text-[0.9rem] JetBrainsMono">
 		<li
 			v-for="tag in tags"
 			:key="tag.id">

@@ -13,13 +13,13 @@ const props = defineProps({
 function gradient(categoryId) {
 	switch (categoryId) {
 		case 1:
-			return 'rgb(109, 111, 10)'
+			return '#9a8866'
 		case 2:
 			return 'rgb(17, 203, 79)'
 		case 3:
 			return 'rgb(38, 13, 13)'
 		case 4:
-			return 'rgba(0, 191, 255, 0.858)'
+			return '#00a1de'
 		case 5:
 			return 'rgb(55, 6, 51)'
 	}
@@ -34,7 +34,7 @@ function gradient(categoryId) {
 		:key="item.id">
 		<div
 			@click="router.push(`/${item?.category?.url}/${item?.url}`)"
-			class="rounded bg-zoom p-4 flex flex-col justify-between min-h-[200px] max-h-[250px] text-white OpenSans cursor-pointer"
+			class="rounded-sm bg-zoom p-[15px] flex flex-col justify-between h-[198px] media900:h-[223px] text-white OpenSans cursor-pointer"
 			:style="{
 				'--bg-image': `url(${item?.image?.formats?.small?.url})`,
 				'--gradient-from': gradient(item?.category?.id),
@@ -43,7 +43,8 @@ function gradient(categoryId) {
 				<p>{{ item?.category?.name }}</p>
 				<time>{{ timeForm(item?.updated_at) }}</time>
 			</div>
-			<h3 class="text-xl transition-[padding-bottom] duration-300 ease-in-out">
+			<h3
+				class="md:text-[1.3rem] text-[1.1rem] leading-[normal] transition-[padding-bottom] duration-300 ease-in-out">
 				{{ item?.title }}
 			</h3>
 		</div>
@@ -63,7 +64,7 @@ function gradient(categoryId) {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-image: linear-gradient(rgba(0, 0, 0, 0), var(--gradient-from)), var(--bg-image);
+	background-image: linear-gradient(rgba(0, 0, 0, 0) 20%, var(--gradient-from)), var(--bg-image);
 	background-size: cover;
 	background-position: center;
 	transition: transform 0.3s ease-in-out;
@@ -72,7 +73,7 @@ function gradient(categoryId) {
 
 .bg-zoom:hover::after {
 	transform: scale(1.2);
-	background-image: linear-gradient(rgba(255, 0, 0, 0), rgba(255, 0, 0, 1)), var(--bg-image);
+	background-image: linear-gradient(rgba(255, 0, 0, 0), #ed3900), var(--bg-image);
 }
 
 .bg-zoom > * {

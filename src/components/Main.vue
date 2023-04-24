@@ -3,7 +3,7 @@ import Loading from '../components/UI/Element/Loading.vue'
 </script>
 
 <template>
-	<main>
+	<main class="mt-[26px]">
 		<loading></loading>
 		<router-view />
 	</main>
