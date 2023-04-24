@@ -13,8 +13,8 @@ const data = computed(() => store.state.post)
 const comments = computed(() => store.state.comments)
 const user = computed(() => store.state.user)
 
-onMounted(() => {
-	getDataWithServer(`articles?url=${url.value}`, 'setData', 'post', router)
+onMounted(async () => {
+	await getDataWithServer(`articles?url=${url.value}`, 'setData', 'post', router)
 })
 </script>
 
@@ -38,7 +38,9 @@ onMounted(() => {
 			<div>
 				<div v-html="item?.content"></div>
 				<div class="hidden">
-					{{ getDataWithServer(`comments/articles:${item.id}`, 'setData', 'comments', router) }}
+					{{
+						getDataWithServer(`comments/articles:${item.id}`, 'setData', 'comments', router, 10000)
+					}}
 				</div>
 				<section class="flex flex-col gap-2 pt-4 mt-8 border-t-2">
 					<div v-for="comment in comments">
