@@ -1,6 +1,6 @@
 <script setup>
 import { useRouter, useRoute } from 'vue-router'
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, ref, nextTick, watch } from 'vue'
 import { getDataWithServer } from '../composition/getDataWithServer'
 import { timeForm } from '../composition/timeForm'
 import store from '../store'
@@ -12,9 +12,14 @@ const url = computed(() => route.params.postId)
 const data = computed(() => store.state.post)
 const comments = computed(() => store.state.comments)
 const user = computed(() => store.state.user)
+watch(data, async () => {
+	console.log('d')
+	await getDataWithServer(`comments/articles:${data.value[0].id}`, 'setData', 'comments', router)
+})
 
 onMounted(async () => {
 	await getDataWithServer(`articles?url=${url.value}`, 'setData', 'post', router)
+	nextTick()
 })
 </script>
 
@@ -37,11 +42,6 @@ onMounted(async () => {
 				:alt="item?.image?.name" />
 			<div>
 				<div v-html="item?.content"></div>
-				<div class="hidden">
-					{{
-						getDataWithServer(`comments/articles:${item.id}`, 'setData', 'comments', router, 10000)
-					}}
-				</div>
 				<section class="flex flex-col gap-2 pt-4 mt-8 border-t-2">
 					<div v-for="comment in comments">
 						<div class="flex gap-3 pb-1">
