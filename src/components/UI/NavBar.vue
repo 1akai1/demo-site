@@ -3,8 +3,7 @@ import { computed, ref, onMounted, onUnmounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import store from '../../store'
 import NavRender from './Element/NavRender.vue'
-import Logo from './Element/Logo.vue'
-import Login from './Authorization/Login.vue'
+import Logo from './Element/Icon/Logo.vue'
 import Hamburger from './Element/Hamburger.vue'
 import { getDataWithServer } from '../../composition/getDataWithServer'
 
@@ -49,8 +48,12 @@ onUnmounted(() => {
 			</hamburger>
 			<logo
 				@click="router.push('/')"
-				class="order-2 cursor-pointer min-w-[120px] md:order-1" />
-			<Login class="order-3 cursor-pointer md:order-3" />
+				class="order-2 py-1 cursor-pointer min-w-[120px] md:order-1" />
+			<button
+				@click="router.push('/authorization/login')"
+				class="order-3 px-3 py-2 text-base rounded cursor-pointer md:order-3 JetBrainsMono hover:bg-[#eeeeeeaa] hover:text-[#ed3900]">
+				Вход
+			</button>
 		</div>
 	</nav>
 </template>

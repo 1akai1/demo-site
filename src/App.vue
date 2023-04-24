@@ -6,4 +6,7 @@
 
 <style>
 @import url('./assets/style.css');
+#app {
+	height: 100%;
+}
 </style>

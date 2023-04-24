@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { Scrollbar, Mousewheel } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { useRouter } from 'vue-router'
@@ -8,7 +8,9 @@ import 'swiper/css/scrollbar'
 import 'swiper/css/thumbs'
 import 'swiper/css/mousewheel'
 import 'swiper/css/grid'
+import store from '../../../store'
 
+const check = computed(() => store.getters.check)
 const router = useRouter()
 const props = defineProps({
 	data: {
@@ -28,6 +30,7 @@ if (!props.enabled) {
 
 <template>
 	<section
+		v-if="check"
 		v-for="categorie in data"
 		:key="categorie.id"
 		class="flex flex-col gap-2 posts">

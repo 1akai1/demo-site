@@ -1,6 +1,9 @@
 <script setup>
 import { useRouter } from 'vue-router'
 import { timeForm } from '../../../composition/timeForm'
+import store from '../../../store'
+import { computed } from 'vue'
+const check = computed(() => store.getters.check)
 const router = useRouter()
 const props = defineProps({
 	data: {
@@ -26,6 +29,7 @@ function gradient(categoryId) {
 
 <template>
 	<article
+		v-if="check"
 		v-for="item in data"
 		:key="item.id">
 		<div

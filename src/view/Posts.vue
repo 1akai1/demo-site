@@ -22,7 +22,9 @@ onMounted(async () => {
 </script>
 
 <template>
-	<section class="flex flex-col gap-5 max-w-[1600px] px-5 m-5 mx-auto">
+	<section
+		v-if="!check"
+		class="flex flex-col gap-5 max-w-[1600px] px-5 m-5 mx-auto">
 		<post-list-render
 			:data="data"
 			:enabled="false"></post-list-render>

@@ -4,8 +4,9 @@ import { computed, onMounted } from 'vue'
 import { getDataWithServer } from '../composition/getDataWithServer'
 import { timeForm } from '../composition/timeForm'
 import store from '../store'
-import myTime from '../components/UI/Element/Time.vue'
+import myTime from '../components/UI/Element/Icon/Time.vue'
 
+const check = computed(() => store.getters.check)
 const [route, router] = [useRoute(), useRouter()]
 const url = computed(() => route.params.postId)
 const data = computed(() => store.state.post)
@@ -20,7 +21,9 @@ onMounted(() => {
 <template>
 	<!-- <pre>{{ data }}</pre> -->
 	<!-- <pre>{{ url }}</pre> -->
-	<section class="mx-auto max-w-[1600px] bg-white">
+	<section
+		class="mx-auto max-w-[1600px] bg-white"
+		v-if="check">
 		<article
 			v-for="item in data"
 			class="p-5 mx-auto post">
@@ -101,8 +104,17 @@ onMounted(() => {
 						v-else
 						class="w-full bg-[#eee] py-[10px] px-[15px] OpenSans text-[#2c3e50] text-base rounded-lg">
 						Что бы оставить свой комментарий необходимо
-						<button class="text-[#ed3900] underline">Войти</button> или
-						<button class="text-[#ed3900] underline">Зарегистрироваться</button>
+						<router-link
+							to="/authorization/login"
+							class="text-[#ed3900] underline"
+							>Войти</router-link
+						>
+						или
+						<router-link
+							to="/authorization/register"
+							class="text-[#ed3900] underline"
+							>Зарегистрироваться</router-link
+						>
 					</div>
 				</section>
 			</div>
@@ -146,7 +158,17 @@ onMounted(() => {
 }
 .post ol li {
 	margin-left: 20px;
-	left: 0;
+}
+.post ul {
+	list-style-type: disc;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	color: var(--color-text);
+	font-size: 1.2rem;
+	padding-left: 0;
+}
+.post ul li {
+	margin-left: 20px;
 }
 .post a {
 	color: #ed3900;

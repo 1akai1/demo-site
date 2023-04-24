@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import PostListRender from './Element/PostListRender.vue'
 import store from '../../store'
+
 const props = defineProps({
 	postLimitRender: Number,
 })

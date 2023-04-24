@@ -32,3 +32,10 @@ export const getPostList = (state) => (size) => {
 	}
 	return data
 }
+
+export function check(state) {
+	if (state.articles.length) return true
+	if (state.categories.length) return true
+	if (state.post.length) return true
+	return false
+}
