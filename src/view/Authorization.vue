@@ -3,10 +3,16 @@ import Login from '../components/UI/Authorization/Login.vue'
 import Forgot from '../components/UI/Authorization/Forgot.vue'
 import Register from '../components/UI/Authorization/Register.vue'
 import { useRoute, useRouter } from 'vue-router'
-import { computed, watch } from 'vue'
+import { computed, onMounted } from 'vue'
+import { getDataWithServer } from '../composition/getDataWithServer'
 
 const route = useRoute()
+const router = useRouter()
 const URL = computed(() => route.params.params)
+
+onMounted(() => {
+	getDataWithServer('categories', 'setData', 'categories', router)
+})
 </script>
 
 <template>

@@ -11,6 +11,6 @@ import Loading from '../components/UI/Element/Loading.vue'
 
 <style scoped>
 main {
-	min-height: calc(100% - (180px + 28px + 48px));
+	min-height: calc(100% - (180px + 27.6px + 50px + 26px));
 }
 </style>
