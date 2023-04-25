@@ -6,6 +6,7 @@ import NewsFeed from '../components/UI/NewsFeed.vue'
 import PostList from '../components/UI/PostList.vue'
 
 const router = useRouter()
+
 const postLimitRender = 6
 
 onMounted(() => {
