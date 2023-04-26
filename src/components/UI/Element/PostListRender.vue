@@ -43,7 +43,7 @@ if (!props.enabled) {
 		<h1
 			@click="router.push(`/${categorie?.url}`)"
 			class="text-[1.7rem] font-bold cursor-pointer JetBrainsMono">
-			{{ categorie.name }} ->
+			{{ `${categorie.name} ->` }}
 		</h1>
 		<article>
 			<swiper
