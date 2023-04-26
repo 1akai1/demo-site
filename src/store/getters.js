@@ -39,3 +39,7 @@ export function check(state) {
 	if (state.post.length) return true
 	return false
 }
+export function checkCategories(state) {
+	if (state.categories.length) return true
+	return false
+}

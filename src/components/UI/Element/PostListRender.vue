@@ -9,8 +9,9 @@ import 'swiper/css/thumbs'
 import 'swiper/css/mousewheel'
 import 'swiper/css/grid'
 import store from '../../../store'
+import Loading from './Loading.vue'
 
-const check = computed(() => store.getters.check)
+const check = computed(() => store.getters.checkCategories)
 const router = useRouter()
 const props = defineProps({
 	data: {
@@ -35,15 +36,17 @@ if (!props.enabled) {
 </script>
 
 <template>
+	<loading :check="check"></loading>
 	<section
 		v-if="check"
 		v-for="categorie in data"
 		:key="categorie.id"
 		class="flex flex-col gap-2 posts">
 		<h1
+			v-if="check"
 			@click="router.push(`/${categorie?.url}`)"
 			class="text-[1.7rem] font-bold cursor-pointer JetBrainsMono">
-			{{ `${categorie.name} ->` }}
+			{{ categorie.name }} ->
 		</h1>
 		<article>
 			<swiper

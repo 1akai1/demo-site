@@ -1,8 +1,10 @@
 <script setup>
-import { computed } from 'vue'
-import store from '../../../store'
-
-const check = computed(() => store.getters.check)
+const props = defineProps({
+	check: {
+		type: Boolean,
+		define: false
+	}
+})
 // debugger
 </script>
 

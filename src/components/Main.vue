@@ -1,10 +1,14 @@
 <script setup>
+import { computed, onMounted } from 'vue'
 import Loading from '../components/UI/Element/Loading.vue'
+import store from '../store'
+
+const check = computed(() => store.getters.check)
 </script>
 
 <template>
 	<main class="mt-[26px]">
-		<loading></loading>
+		<loading :check="check"></loading>
 		<router-view />
 	</main>
 </template>
