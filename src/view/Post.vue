@@ -13,7 +13,6 @@ const data = computed(() => store.state.post)
 const comments = computed(() => store.state.comments)
 const user = computed(() => store.state.user)
 watch(data, async () => {
-	console.log('d')
 	await getDataWithServer(`comments/articles:${data.value[0].id}`, 'setData', 'comments', router)
 })
 
