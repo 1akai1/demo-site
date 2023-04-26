@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-	<div>404</div>
+	<div>4040</div>
 </template>
 
 <style scoped></style>
