@@ -1,14 +1,29 @@
 name: Build Vue
-on: [push]
+on:
+  push:
+    branches:
+      - master
+
 jobs:
   build_vue:
     runs-on: ubuntu-latest
-    name: Build Vue
     steps:
-      - uses: actions/checkout@v2
-      - id: Build-Vue
-        uses: xRealNeon/VuePagesAction@1.0.1
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
-          username: '1akai1'
-          reponame: 'demo-site'
-          token: ${{ secrets.GITHUB_TOKEN }} #
+          node-version: 18
+
+      - name: Install
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          branch: gh-pages
+          folder: dist
