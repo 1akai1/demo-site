@@ -1,6 +1,6 @@
 <script setup>
 import Telegram from './Icon/Telegram.vue'
-import Vk from './Icon/vk.vue'
+import Vk from './Icon/Vk.vue'
 import Discord from './Icon/Discord.vue'
 import Boosty from './Icon/Boosty.vue'
 </script>
