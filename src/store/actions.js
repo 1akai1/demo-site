@@ -1,4 +1,4 @@
-import axiosClient from '../components/UX/axiosClient'
+import axiosClient from '../composition/axiosClient'
 
 // export function getArticles({ commit }, url) {
 // 	axiosClient.get(url).then(({ data }) => commit('setArticles', data))
@@ -10,8 +10,6 @@ import axiosClient from '../components/UX/axiosClient'
 export async function getData({ commit }, { url, mutationName, stateName }) {
 	axiosClient
 		.get(url)
-		.then(({ data }) =>
-			commit(mutationName, { data: data, stateName: stateName })
-		)
+		.then(({ data }) => commit(mutationName, { data: data, stateName: stateName }))
 	// debugger
 }

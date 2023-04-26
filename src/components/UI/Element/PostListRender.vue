@@ -14,17 +14,23 @@ const check = computed(() => store.getters.check)
 const router = useRouter()
 const props = defineProps({
 	data: {
-		type: Array,
+		type: Array
 	},
 	enabled: {
-		type: Boolean,
-	},
+		type: Boolean
+	}
 })
 let wrap = ref()
+let spaceBetween = ref(12)
+let gap = ref('0')
 if (!props.enabled) {
 	wrap.value = 'wrap'
+	spaceBetween.value = 0
+	gap.value = '12px'
 } else {
 	wrap.value = 'nowrap'
+	spaceBetween.value = 12
+	gap.value = '0'
 }
 </script>
 
@@ -45,13 +51,13 @@ if (!props.enabled) {
 				:modules="[Scrollbar, Mousewheel]"
 				:slides-per-view="'auto'"
 				:mousewheel="{ forceToAxis: true, releaseOnEdges: true }"
-				:space-between="12"
+				:space-between="spaceBetween"
 				:enabled="enabled"
 				:scrollbar="{
 					el: '.swiper-scrollbar',
-					draggable: true,
+					draggable: true
 				}"
-				:style="{ '--swiper-wrapper-wrap': wrap }">
+				:style="{ '--swiper-wrapper-wrap': wrap, '--swiper-wrapper-gap': gap }">
 				<swiper-slide
 					v-for="article in categorie.articles"
 					:key="article.id"
@@ -85,6 +91,7 @@ if (!props.enabled) {
 <style>
 .swiper-wrapper {
 	flex-wrap: var(--swiper-wrapper-wrap);
+	gap: var(--swiper-wrapper-gap);
 }
 /* .swiper-wrapper .swiper-slide {
 	margin: var(--swiper-wrapper-m) !important;

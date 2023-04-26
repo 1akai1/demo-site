@@ -9,6 +9,7 @@ const route = useRoute()
 const router = useRouter()
 const data = computed(() => store.state.categories)
 const posts = computed(() => route.params.posts)
+const check = computed(() => store.getters.check)
 
 watch(
 	posts,
@@ -23,7 +24,7 @@ onMounted(async () => {
 
 <template>
 	<section
-		v-if="!check"
+		v-if="check"
 		class="flex flex-col gap-5 max-w-[1600px] px-5 m-5 mx-auto">
 		<post-list-render
 			:data="data"
